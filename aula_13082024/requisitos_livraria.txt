@@ -1,0 +1,19 @@
+OBS: o github não abre o word, por isso passei para as notas
+
+REQUISITOS FUNCIONAIS
+
+ • Só atender clientes com cadastro
+ • Os cadastros são feitos pela gerência operacional 
+ • A gerência operacional também cadastra os livros
+ • Quando tem um pedido ele vai para o cadastro de pedidos e é atendido pelo vendedor que vê o estoque
+ • A nota fiscal é emitida toda vez que o pedido é aceito/finalizado e as compras são pagas a prazo(30d) e sem entrada
+ • O boleto é emitido, após a nota fiscal, pelo vendedor 
+ • A gerência operacional recebe relatórios de todos os passos
+ • O vendedor realiza consultas
+
+REQUISITOS FACULTATIVOS
+ 
+ • Funcionários da Gerência Operacional: Informações sobre os funcionários da gerência que fazem o cadastro e gerenciam o sistema.
+ • Sistema de Compras (integração com o sistema externo): Informações sobre o sistema externo que atualiza o estoque, que pode precisar de integração, mas não precisa ser no banco de dados principal.
+ • E-commerce (futuro): Criação de uma futura loja para fazer as vendas online.
+	
