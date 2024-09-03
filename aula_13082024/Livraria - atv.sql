@@ -1,22 +1,22 @@
-OBS: Lembrar de subir o diagrama e revisar essas tabelas de novo
+create database Livraria;
+use Livraria;
 
 -- Tabela para armazenar informações sobre clientes
 
 CREATE TABLE Clientes (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    id_clientes INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     telefone VARCHAR(15),
-    email VARCHAR(100),
-    FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
+    email VARCHAR(100)
 );
 
 -- Tabela para armazenar informações sobre livros
 
 CREATE TABLE Livros (
     id_livro INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(255) NOT NULL,
     isbn VARCHAR(20),
+    titulo VARCHAR(255) NOT NULL,
     autor VARCHAR(100) NOT NULL,
     editora VARCHAR(100),
     preco DECIMAL(10, 2) NOT NULL,
@@ -30,7 +30,6 @@ CREATE TABLE Vendedores (
     nome VARCHAR(100) NOT NULL,
     telefone VARCHAR(15),
     email VARCHAR(100)
-    FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
 );
 
 -- Tabela para armazenar informações sobre pedidos
@@ -38,10 +37,10 @@ CREATE TABLE Vendedores (
 CREATE TABLE Pedidos (
     id_pedido INT AUTO_INCREMENT PRIMARY KEY,
     data_pedido DATE NOT NULL,
-    id_cliente INT NOT NULL,
+	id_clientes INT NOT NULL,
     id_vendedor INT NOT NULL,
     status_pedido ENUM('pendente', 'atendido') NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    FOREIGN KEY (id_clientes) REFERENCES Clientes(id_clientes),
     FOREIGN KEY (id_vendedor) REFERENCES Vendedores(id_vendedor)
 );
 
@@ -49,7 +48,7 @@ CREATE TABLE Pedidos (
 
 CREATE TABLE Itens_Pedido (
     id_item_pedido INT AUTO_INCREMENT PRIMARY KEY,
-    id_pedido INT NOT NULL,
+	id_pedido INT NOT NULL,
     id_livro INT NOT NULL,
     quantidade INT NOT NULL,
     preco_unitario DECIMAL(10, 2) NOT NULL,
